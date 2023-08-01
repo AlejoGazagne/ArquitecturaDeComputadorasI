@@ -1,0 +1,29 @@
+module blinky (input clk, 
+		output reg led);
+
+	reg [31:0] counter;
+
+	always @ (posedge clk)
+	begind
+		if(counter <= 25000000)
+		begind
+			counter <= counter + 1;
+		end
+		else
+		begin 
+			counter <= 0;
+			led <= ~led;
+		end
+	end
+endmodule 
+// Analysis & Synthesis 
+// Asignar pines Assignments/Pin Planner
+Tienen que aparecer las entradas y salidas. Entramos al manual y vemos cual es la Location del pin que queremos. (led = PIN_A15; clk = PIN_R8)
+Start en Compile design.
+Program Device
+Hardware Setup USB_Blaster; MODE: JTAG
+Auto Detect, Auto Detect; EP4CE22 
+cli <none>/output_files/blinky.sof
+tick Program configure []
+Start 
+///////////////////////////////////////////////////////////////////////////////
